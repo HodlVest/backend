@@ -1,0 +1,54 @@
+# Python
+*.pyc
+*.pyo
+__pycache__/
+*.pyd
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+.env/
+
+# Django stuff
+*.log
+*.sqlite3
+db.sqlite3
+media/
+staticfiles/
+__pycache__/
+*.migrations/
+
+# IDE and editor settings
+.idea/
+.vscode/
+*.sublime-workspace
+*.sublime-project
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
+# Python egg files
+*.egg
+*.egg-info/
+dist/
+build/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Coverage reports
+.coverage
+.coverage.*
+nosetests.xml
+test_*.xml
+*.cover
+
+# Pytest
+.pytest_cache/
+
+# Environment variables
+*.env

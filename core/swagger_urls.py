@@ -5,11 +5,11 @@ from django.urls import path
 
 schema_view = get_schema_view(
    openapi.Info(
-      title="Your Project API",
+      title="HodlVest API",
       default_version='v1',
-      description="API documentation for your project",
+      description="API documentation for HodlVest",
       terms_of_service="https://www.google.com/policies/terms/",
-      contact=openapi.Contact(email="your_email@example.com"),
+      contact=openapi.Contact(email="support@hodlvest.com"),
       license=openapi.License(name="BSD License"),
    ),
    public=True,

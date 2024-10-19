@@ -17,11 +17,19 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from api.views import VerifyEmail
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls),  # Admin site
+    
+    # API endpoints
     path('api/', include('api.urls')),
-    path('api/auth/', include('dj_rest_auth.urls')),
-    path('api/auth/registration/', include('dj_rest_auth.registration.urls')),
+    path('api/auth/', include('dj_rest_auth.urls')),  # Auth endpoints
+    path('api/auth/registration/', include('dj_rest_auth.registration.urls')),  # Registration endpoints
+    
+    # accounts
+    path('accounts/confirm-email/<str:key>/', VerifyEmail().as_view(), name="verify_email"),
+    path('accounts/', include('allauth.socialaccount.urls')),  # OAuth URLs for social auth
 
     # docs
     path('docs/', include('core.swagger_urls')),

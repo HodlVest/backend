@@ -20,7 +20,7 @@ class VerifyEmail(APIView):
         response = requests.post("http://127.0.0.1:8000/api/auth/registration/verify-email/", json={
             "key": key,
         })
-        return Response(response.json(), status=response.status_code)
+        return Response(response.json(), status=response.status_code)  # Should be redirect
 
 class NotFoundView(APIView):
     def get(self, request):

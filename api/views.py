@@ -22,6 +22,25 @@ class VerifyEmail(APIView):
         })
         return Response(response.json(), status=response.status_code)  # Should be redirect
 
+
 class NotFoundView(APIView):
     def get(self, request):
         return HttpResponseNotFound()
+
+    
+class PasswordReset(APIView):
+    """
+    Password Reset
+    Sends user credentials required to reset password to Frontend
+    Credentials are used to reset password on the /confirm endpoint via POST
+    New password + confirm is POSTed alone with given credentials
+    """
+
+    def get(self, request, *args, **kwargs):
+        uid64 = kwargs.get('uid64', None)
+        token = kwargs.get('token', None)
+        
+        return Response({
+            'uib64': uid64,
+            'token': token
+        }, status=status.HTTP_200_OK)  # should be redirect

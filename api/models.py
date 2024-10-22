@@ -3,10 +3,7 @@ from django.contrib.auth.models import AbstractUser, PermissionsMixin
 
 class User(AbstractUser, PermissionsMixin):
     username = None
-    first_name = None
-    last_name = None
     
-    name = models.CharField(null=True, max_length=255)
     email = models.EmailField(unique=True, null=False)
 
     other_field = models.CharField(null=True, max_length=255)  # would remove later

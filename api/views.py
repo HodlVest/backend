@@ -6,6 +6,7 @@ from rest_framework import status
 
 from django.http import HttpResponseNotFound
 
+from core.settings import env
 
 class VerifyEmail(APIView):
     """
@@ -17,9 +18,15 @@ class VerifyEmail(APIView):
 
     def get(self, request, *args, **kwargs):
         key = kwargs.get("key", None)
-        response = requests.post("http://127.0.0.1:8000/api/auth/registration/verify-email/", json={
+        if env.bool('DEBUG'):
+            email_verify_url = "http://127.0.0.1:8000/api/auth/registration/verify-email/"
+        else:
+            email_verify_url = f"https://hodlvest.onrender.com/api/auth/registration/verify-email/"
+        
+        response = requests.post(email_verify_url, json={
             "key": key,
         })
+        
         return Response(response.json(), status=response.status_code)  # Should be redirect
 
 
@@ -27,7 +34,7 @@ class NotFoundView(APIView):
     def get(self, request):
         return HttpResponseNotFound()
 
-    
+
 class PasswordReset(APIView):
     """
     Password Reset

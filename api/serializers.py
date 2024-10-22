@@ -13,15 +13,8 @@ class RegistrationSerializer(ModelSerializer, RegisterSerializer):
             raise ValidationError("A user was found with this email.")
         return email
     
-    def save(self, request):
-        user = super().save(request)
-        user.first_name = self.validated_data.get("first_name", None)
-        user.last_name = self.validated_data.get("last_name", None)
-        user.save()
-        return user
-    
 class CUserDetailsSerializer(UserDetailsSerializer, ModelSerializer):
     class Meta:
         model = User
-        fields = ['name', 'email', 'last_login', 'date_joined', 'is_active',]
+        fields = ['first_name', 'last_name', 'email', 'last_login', 'date_joined', 'is_active',]
         read_only_fields = ['email', 'last_login', 'date_joined', 'is_active',]

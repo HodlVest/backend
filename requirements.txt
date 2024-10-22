@@ -87,4 +87,5 @@ vine==5.1.0
 wcwidth==0.2.13
 web3==7.2.0
 websockets==13.0.1
+whitenoise==6.7.0
 yarl==1.11.1

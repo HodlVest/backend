@@ -6,7 +6,7 @@ from .models import User
 class RegistrationSerializer(ModelSerializer, RegisterSerializer):
     class Meta:
         model = User
-        fields = ["email", "password1", "password2", "first_name", "is_staff", "is_superuser"]
+        fields = ["email", "password1", "password2",]
 
     def validate_email(self, email):
         if User.objects.filter(email=email).exists():
@@ -16,5 +16,5 @@ class RegistrationSerializer(ModelSerializer, RegisterSerializer):
 class CUserDetailsSerializer(UserDetailsSerializer, ModelSerializer):
     class Meta:
         model = User
-        fields = ['first_name', 'last_name', 'email', 'last_login', 'date_joined', 'is_active',]
+        fields = ['first_name', 'last_name', 'email', 'last_login', 'date_joined', 'is_active', "is_superuser", "is_staff"]
         read_only_fields = ['email', 'last_login', 'date_joined', 'is_active',]

@@ -6,7 +6,7 @@ from .models import User
 class RegistrationSerializer(ModelSerializer, RegisterSerializer):
     class Meta:
         model = User
-        fields = ["email", "password1", "password2"]  # might be modified later (TBD)
+        fields = ["email", "password1", "password2", "first_name", "is_staff", "is_superuser"]
 
     def validate_email(self, email):
         if User.objects.filter(email=email).exists():

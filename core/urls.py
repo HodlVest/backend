@@ -20,7 +20,7 @@ from django.urls import path, include
 from api.views import VerifyEmail, index
 
 urlpatterns = [
-    path('/', index, name="index"),  # Index
+    path('', index, name="index"),  # Index
 
     path('admin/', admin.site.urls),  # Admin site
     
@@ -31,7 +31,7 @@ urlpatterns = [
     
     # accounts
     path('accounts/confirm-email/<str:key>/', VerifyEmail().as_view(), name="verify_email"),
-    path('accounts/', include('allauth.urls')),  # OAuth URLs for social auth
+    path('accounts/', include('allauth.socialaccount.urls')),  # OAuth URLs for social auth
 
     # docs
     path('docs/', include('core.swagger_urls')),

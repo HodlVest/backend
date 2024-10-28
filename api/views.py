@@ -5,6 +5,7 @@ from rest_framework.response import Response
 from rest_framework import status
 
 from django.http import HttpResponseNotFound
+from django.shortcuts import redirect
 from django.conf import settings
 
 class VerifyEmail(APIView):
@@ -17,7 +18,7 @@ class VerifyEmail(APIView):
 
     def get(self, request, *args, **kwargs):
         key = kwargs.get("key", None)
-        
+
         if settings.DEBUG:
             email_verify_url = "http://127.0.0.1:8000/api/auth/registration/verify-email/"
         else:
@@ -51,3 +52,6 @@ class PasswordReset(APIView):
             'uib64': uid64,
             'token': token
         }, status=status.HTTP_200_OK)  # should be redirect
+
+def index(request):
+    return redirect("https://dsfs2-uyaaa-aaaam-qbgpq-cai.icp0.io/")

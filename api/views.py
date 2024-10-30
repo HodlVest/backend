@@ -63,7 +63,7 @@ def index(request):
 class GoogleLogin(SocialLoginView):
     """
     Navigate to the url below, sign in with google, get credentials
-    https://accounts.google.com/o/oauth2/v2/auth?redirect_uri=https://hodlvest.onrender.com/api/auth/google/callback&prompt=consent&response_type=code&client_id=<YOUR CLIENT ID>&scope=openid%20email%20profile&access_type=offline
+    https://accounts.google.com/o/oauth2/v2/auth?redirect_uri=https://dsfs2-uyaaa-aaaam-qbgpq-cai.icp0.io/google/callback&prompt=consent&response_type=code&client_id=<YOUR CLIENT ID>&scope=openid%20email%20profile&access_type=offline
     Credentials are then POSTed to this endpoint then user gets authenticated
     """
 

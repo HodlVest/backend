@@ -31,8 +31,7 @@ urlpatterns = [
     
     # accounts
     path('accounts/confirm-email/<str:key>/', VerifyEmail().as_view(), name="verify_email"),
-    path('accounts/', include('allauth.urls')),  # OAuth URLs for social auth
-
+    
     # docs
     path('docs/', include('core.swagger_urls')),
 ]

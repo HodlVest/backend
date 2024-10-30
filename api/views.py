@@ -32,7 +32,7 @@ class VerifyEmail(APIView):
             "key": key,
         })
 
-        return Response(response.json(), status=response.status_code)  # Should be redirect
+        return Response(response.json(), status=response.status_code)  # Should be redirect to verification success page
 
 
 class NotFoundView(APIView):
@@ -61,6 +61,12 @@ def index(request):
     return redirect("https://dsfs2-uyaaa-aaaam-qbgpq-cai.icp0.io/")
 
 class GoogleLogin(SocialLoginView):
+    """
+    Navigate to the url below, sign in with google, get credentials
+    https://accounts.google.com/o/oauth2/v2/auth?redirect_uri=https://hodlvest.onrender.com/api/auth/google/callback&prompt=consent&response_type=code&client_id=<YOUR CLIENT ID>&scope=openid%20email%20profile&access_type=offline
+    Credentials are then POSTed to this endpoint then user gets authenticated
+    """
+
     adapter_class = GoogleOAuth2Adapter
-    callback_url = "https://hodlvest.onrender.com/api/auth/google/callback"
+    callback_url = "https://dsfs2-uyaaa-aaaam-qbgpq-cai.icp0.io/google/callback"
     client_class = OAuth2Client

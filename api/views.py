@@ -68,5 +68,5 @@ class GoogleLogin(SocialLoginView):
     """
 
     adapter_class = GoogleOAuth2Adapter
-    callback_url = "https://dsfs2-uyaaa-aaaam-qbgpq-cai.icp0.io/google/callback/"
+    callback_url = "postmessage"
     client_class = OAuth2Client
